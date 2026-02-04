@@ -1,3 +1,7 @@
+---
+icon: simple/ansible
+---
+
 # Project 3: Ansible - Configure Docker Containers
 
 **Project Series:** 3 of 7  
