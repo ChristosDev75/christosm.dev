@@ -44,10 +44,19 @@ Copyright &copy; 2026 Christos Michaelides
 # can be defined using TOML syntax.
 #
 # Read more: https://zensical.org/docs/setup/navigation/
-# nav = [
-#   { "Get started" = "index.md" },
-#   { "Markdown in 5min" = "markdown.md" },
-# ]
+nav = [
+  { "Home" = "index.md" },
+  { "Projects" = [
+    { "Overview" = "projects/index.md" },
+    { "Project 1: Terraform + Docker" = "projects/01-terraform-docker-nginx/index.md" },
+    { "Project 2: Kubernetes + Python" = "projects/02-k8s-python-app/index.md" },
+    { "Project 3: Ansible + Docker" = "projects/03-ansible-docker-demo/index.md" },
+    { "VPS Demo Platform" = "projects/vps-sandbox-platform/index.md" },
+  ]},
+  { "Meta" = [
+    { "Claude Instructions" = "meta/claude-instructions.md" },
+  ]},
+]
 
 # With the "extra_css" option you can add your own CSS styling to customize
 # your Zensical project according to your needs. You can add any number of
