@@ -1,3 +1,7 @@
+---
+title: Kubernetes Migration
+---
+
 # Phase 2: Kubernetes Migration Guide
 
 This guide outlines the migration from Docker Compose to Kubernetes, aligning with your CKA/CKAD certification preparation and demonstrating enterprise-grade orchestration skills.

@@ -1,3 +1,7 @@
+---
+title: Variables Guide
+---
+
 # Terraform Variables Guide - Project 1
 
 This guide explains how to use variables in your Terraform configuration.

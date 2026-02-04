@@ -1,3 +1,7 @@
+---
+title: Mini Projects Overview
+---
+
 # Infrastructure as Code & DevOps Mini-Projects
 
 A collection of hands-on projects for building expertise in modern infrastructure automation, container orchestration, and configuration management. These projects support certification preparation for HashiCorp Terraform Associate, Kubernetes (CKA/CKAD), and Red Hat Ansible Automation.

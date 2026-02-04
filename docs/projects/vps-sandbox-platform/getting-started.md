@@ -1,3 +1,7 @@
+---
+title: Getting Started
+---
+
 # Getting Started - Zensical Sandbox Platform
 
 Welcome to the Zensical Sandbox Platform! This document will help you get up and running quickly.

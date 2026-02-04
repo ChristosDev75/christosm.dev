@@ -1,3 +1,7 @@
+---
+title: Learning Notes
+---
+
 # Ansible Project - Hands-On Learning Notes
 
 **Date**: February 4, 2026
