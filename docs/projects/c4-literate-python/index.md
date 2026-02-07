@@ -5,75 +5,30 @@ title: "C4 Literate Python"
 
 # C4 Literate Python
 
-Generate C4 architecture diagrams from literate Python code.
+> Generate C4 architecture diagrams from literate Python code. **[View source on GitHub](https://github.com/ChristosDev75/portfolio/tree/main/c4-literate-python)**
 
-## Overview
+## Project Overview
 
-C4 Literate Python is a tool that extracts C4 model annotations from
-well-documented Python codebases and generates Structurizr DSL for
-creating architecture diagrams.
+C4 Literate Python extracts C4 model annotations from well-documented Python codebases and generates Structurizr DSL for creating architecture diagrams. Following literate programming principles, architecture documentation lives alongside the code it describes - no separate diagram files to maintain and no drift between code and documentation.
 
-**Key Features:**
-- 📝 Embed architecture documentation directly in Python code
-- 🔄 Automatic diagram generation from annotations
-- ✅ Validation of C4 annotations
-- 🎨 Support for Container and Component diagrams
-- 🚀 Zero runtime dependencies (stdlib only)
+## Technology Stack
 
-## Installation
+| Technology | Role |
+|------------|------|
+| Python 3.12 | Core language (stdlib only - zero runtime dependencies) |
+| `ast` module | Python source code parsing |
+| `re` module | Annotation extraction from docstrings |
+| Structurizr DSL | Output format for C4 architecture diagrams |
+| YAML / JSON | Annotation schema definition |
 
-```bash
-pip install c4-literate-python
-```
+## Key Features
 
-Or install from source:
-
-```bash
-git clone https://github.com/yourusername/c4-literate-python.git
-cd c4-literate-python
-pip install -e .
-```
-
-## Quick Start
-
-### 1. Annotate Your Python Code
-
-Add C4 annotations to your Python module docstrings:
-
-```python
-"""
-My API Module
-
-C4 MODEL MAPPING
-----------------
-@c4-container: API Application
-@c4-technology: Python 3.12, FastAPI 0.104
-@c4-description: REST API providing CRUD operations
-
-@c4-uses: Database Layer - "Persists data" - "SQLAlchemy"
-"""
-
-from fastapi import FastAPI
-
-app = FastAPI()
-```
-
-### 2. Generate Structurizr DSL
-
-```bash
-c4-literate tangle ./my_project -o workspace.dsl
-```
-
-### 3. View Diagrams
-
-Use Structurizr Lite to view your generated diagrams:
-
-```bash
-docker run -p 8080:8080 -v $(pwd):/usr/local/structurizr \
-    structurizr/lite
-```
-
-Open http://localhost:8080 to see your architecture diagrams!
+- Embed architecture documentation directly in Python docstrings
+- Automatic Structurizr DSL generation from annotations
+- Validation of C4 annotations before generation
+- Support for Container and Component diagrams
+- Zero runtime dependencies (Python standard library only)
+- PEP8-compliant multi-line annotation handling
 
 ## Annotation Schema
 
@@ -87,7 +42,6 @@ Open http://localhost:8080 to see your architecture diagrams!
 @c4-responsibilities:
     - Handle HTTP requests
     - Validate input data
-    - Return JSON responses
 """
 ```
 
@@ -100,12 +54,6 @@ Open http://localhost:8080 to see your architecture diagrams!
 @c4-description: Handles user authentication
 """
 ```
-
-**Important:** Components are automatically assigned to containers
-based on filepath. If a component is declared in the same file as a
-container, it will be nested inside that container. Otherwise, it
-will be assigned to the first available container. See
-`docs/ADR-001-component-assignment.md` for details and alternatives.
 
 ### Relationships
 
@@ -122,52 +70,11 @@ will be assigned to the first available container. See
 ```python
 def create_user(user_data):
     """
-    Create a new user.
-    
     @c4-operation: create_user
     @c4-calls: Database Layer - "Persists user record"
     """
     pass
 ```
-
-## CLI Commands
-
-### Tangle (Generate DSL)
-
-```bash
-# From directory
-c4-literate tangle ./my_project
-
-# From single file
-c4-literate tangle ./my_module.py
-
-# Custom output file
-c4-literate tangle ./my_project -o my_workspace.dsl
-```
-
-### Validate
-
-Check annotations without generating:
-
-```bash
-c4-literate validate ./my_project
-```
-
-### Extract (Debug)
-
-View extracted annotations:
-
-```bash
-# Text format
-c4-literate extract ./my_project
-
-# JSON format
-c4-literate extract ./my_project --format json
-```
-
-## Complete Example
-
-See the `examples/` directory for a complete annotated codebase.
 
 ## Schema Reference
 
@@ -175,30 +82,12 @@ Full annotation schema is documented in:
 - **Source of Truth:** `c4-annotations-schema.yaml` (edit this file)
 - **User Documentation:** `SCHEMA.md` (generated from YAML)
 
-**Regenerating Documentation:**
-
-After editing the YAML schema, regenerate the Markdown docs:
-
-```bash
-make docs
-# or
-python3 generate_schema_docs.py
-```
-
-Key annotations:
-- `@c4-container` - Deployable unit (web app, database, etc.)
-- `@c4-component` - Logical grouping within container
-- `@c4-technology` - Tech stack used
-- `@c4-description` - Brief description
-- `@c4-uses` - Dependency relationship
-- `@c4-calls` - Operation-level call
-- `@c4-operation` - Significant function/method
+Key annotations: `@c4-container`, `@c4-component`, `@c4-technology`, `@c4-description`, `@c4-uses`, `@c4-calls`, `@c4-operation`
 
 ## Design Philosophy
 
 ### Literate Programming
 
-C4 Literate Python follows literate programming principles:
 - Architecture documentation lives with code
 - Annotations are human-readable
 - No separate diagram files to maintain
@@ -206,44 +95,29 @@ C4 Literate Python follows literate programming principles:
 
 ### Minimal Dependencies
 
-Core tool uses only Python standard library:
-- `ast` for parsing Python
-- `re` for annotation extraction
-- No external dependencies required
+Core tool uses only Python standard library (`ast` for parsing, `re` for extraction). No external dependencies required.
 
 ### PEP8 Compliance
 
-Handles multi-line annotations wrapped at 79 characters:
+Handles multi-line annotations wrapped at 79 characters. The tangler automatically rejoins these into single-line descriptions for clean DSL generation.
 
-```python
-@c4-description: This is a very long description that wraps
-                 across multiple lines for PEP8 compliance
+## Codebase Overview
+
 ```
-
-The tangler automatically rejoins these into single-line
-descriptions for clean DSL generation.
-
-## Workflow Integration
-
-### Git Pre-commit Hook
-
-Generate diagrams before committing:
-
-```bash
-#!/bin/bash
-# .git/hooks/pre-commit
-c4-literate tangle ./src -o docs/architecture/workspace.dsl
-git add docs/architecture/workspace.dsl
-```
-
-### CI/CD Pipeline
-
-```yaml
-# .github/workflows/docs.yml
-- name: Generate Architecture Diagrams
-  run: |
-    pip install c4-literate-python
-    c4-literate tangle ./src -o workspace.dsl
+c4-literate-python/
+├── src/
+│   └── c4_literate/             # Main package: parser, tangler, validator, CLI
+├── tests/                       # Unit tests for annotation extraction and DSL generation
+├── docs/                        # ADRs and design documentation
+├── c4-annotations-schema.yaml   # Source of truth for annotation schema
+├── c4-annotations-schema.json   # JSON version of annotation schema
+├── SCHEMA.md                    # Generated schema documentation
+├── USAGE_EXAMPLE.md             # Annotated codebase walkthrough
+├── generate_schema_docs.py      # Script to regenerate SCHEMA.md from YAML
+├── workspace.dsl                # Example Structurizr DSL output
+├── Makefile                     # Build targets: test, lint, docs
+├── pyproject.toml               # Package configuration and dependencies
+└── README.md                    # This file
 ```
 
 ## Future Work
