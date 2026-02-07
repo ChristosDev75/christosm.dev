@@ -246,32 +246,24 @@ git add docs/architecture/workspace.dsl
     c4-literate tangle ./src -o workspace.dsl
 ```
 
-## Future Roadmap
+## Future Work
 
 - [ ] System Context diagram support
 - [ ] Deployment diagram support
 - [ ] Export to other formats (PlantUML, Mermaid)
 - [ ] MkDocs integration (weaver)
-- [ ] VS Code extension
-- [ ] Real-time validation in IDE
+- [ ] VS Code extension for real-time validation
+- [ ] Multi-workspace support for monorepos
 
-## Contributing
+## Interview Talking Points
 
-Contributions welcome! See CONTRIBUTING.md.
+- "Built a developer tool that generates C4 architecture diagrams from annotated Python source code, following literate programming principles"
+- "Designed an annotation schema with validation rules, enforcing architectural consistency at the code level"
+- "Zero runtime dependencies - stdlib-only implementation demonstrating careful dependency management"
 
-## License
+## Resources
 
-MIT License - see LICENSE file.
-
-## Credits
-
-- **C4 Model** by Simon Brown: https://c4model.com/
-- **Structurizr** by Simon Brown: https://structurizr.com/
-- Inspired by literate programming principles from Donald Knuth
-
-## Links
-
-- Documentation: https://github.com/yourusername/c4-literate-python
-- Issues: https://github.com/yourusername/c4-literate-python/issues
-- C4 Model: https://c4model.com/
-- Structurizr DSL: https://github.com/structurizr/dsl
+- [C4 Model](https://c4model.com/) by Simon Brown
+- [Structurizr DSL](https://github.com/structurizr/dsl)
+- [Contributing Guide](CONTRIBUTING.md)
+- [License](LICENSE) (MIT)
