@@ -5,7 +5,7 @@ title: "C4 Literate Python"
 
 # C4 Literate Python
 
-> Generate C4 architecture diagrams from literate Python code. **[View source on GitHub](https://github.com/ChristosDev75/portfolio/tree/main/c4-literate-python)**
+> Generate C4 architecture diagrams from literate Python code. **[View source on GitHub](https://github.com/ChristosDev75/c4-literate-python)**
 
 ## Project Overview
 
