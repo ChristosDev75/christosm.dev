@@ -55,7 +55,7 @@ portfolio-root/
 │   ├── static/
 │   └── config/
 │
-└── vps-sandbox-platform/               # Advanced showcase project
+└── vps-demo-platform/               # Advanced showcase project
     ├── README.md
     ├── backend/
     ├── terraform/
@@ -144,7 +144,7 @@ portfolio-root/
 - Maintain portfolio content
 - Deploy to hosting platforms
 
-### 5. vps-sandbox-platform
+### 5. vps-demo-platform
 **Purpose**: Advanced showcase project demonstrating production-grade skills  
 **Technologies**: Docker, Kubernetes, Terraform, FastAPI, Security hardening  
 **Complexity**: Advanced  
@@ -388,7 +388,7 @@ As of this document's creation, the current priorities are:
 
 1. **Mini projects (1-3)** - ✅ Complete and documented
 2. **christosm.dev** - Documentation site with auto-sync system implemented
-3. **vps-sandbox-platform** - Planning phase (not yet started)
+3. **vps-demo-platform** - Planning phase (not yet started)
 4. **Terraform certification preparation** - Ongoing
 5. **Kubernetes learning** - Preparing for CKA
 6. **Portfolio organization** - Structuring projects for presentation
@@ -422,6 +422,6 @@ Use these markers in project READMEs:
 | k8s-python-app | ✅ Complete | Intermediate | Kubernetes, Python | CKA, CKAD |
 | ansible-docker-demo | ✅ Complete | Beginner-Int | Ansible, Docker | RHCSA Ansible |
 | christosm.dev | 🏗️ In Development | Varies | SSG, Markdown | - |
-| vps-sandbox-platform | 🚧 Planning | Advanced | All | All |
+| vps-demo-platform | 🚧 Planning | Advanced | All | All |
 
 Use this table to quickly understand project status and focus areas.
