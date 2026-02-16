@@ -1,9 +1,9 @@
 ---
 icon: material/server-security
-title: "VPS Demo Sandbox Platform"
+title: "Project 4: VPS Sandbox Platform"
 ---
 
-# VPS Demo Sandbox Platform
+# Project 4: VPS Demo Sandbox Platform
 
 > A secure, production-grade sandboxed code execution platform. **[View source on GitHub](https://github.com/christosm-dev/portfolio/tree/main/vps-sandbox-platform)**
 
@@ -164,9 +164,9 @@ vps-sandbox-platform/
 ## Future Work
 
 ### Kubernetes Migration
-- Namespace-based isolation
-- ResourceQuotas and LimitRanges
-- NetworkPolicies for enhanced security
+- ~~Namespace-based isolation~~ Implemented
+- ~~ResourceQuotas and LimitRanges~~ Implemented
+- ~~NetworkPolicies for enhanced security~~ Implemented
 - Horizontal Pod Autoscaling
 
 ### Advanced Security
